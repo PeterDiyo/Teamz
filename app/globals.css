@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+:root {
+  height: 100%;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,4 +30,201 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.ql-toolbar {
+  border: none !important;
+  background-color: #222222 !important;
+}
+
+.ql-toolbar .ql-formats:not(:last-child) {
+  border: 1px;
+  padding-right: 12px;
+}
+
+.ql-container {
+  font-family: "Lato", sans-serif !important;
+  border: none !important;
+  height: unset !important;
+}
+
+.ql-editor {
+  line-height: 22px !important;
+  padding: 8px 12px !important;
+  color: rgb(229 229 229) !important;
+  font-weight: 400 !important;
+  font-family: "Lato", sans-serif !important;
+  font-size: 14px !important;
+}
+
+.ql-editor a {
+  color: #8b5cf6 !important;
+}
+
+.ql-editor a:hover {
+  text-decoration: underline !important;
+}
+
+.ql-renderer {
+  padding: 0 !important;
+}
+
+.ql-editor:before {
+  left: 12px !important;
+  font-family: "Lato", sans-serif !important;
+  color: gray !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  @apply truncate !important;
+}
+
+/* Change the color of SVG icons to light gray */
+.ql-toolbar svg .ql-stroke {
+  stroke: #b6b6b6 !important; /* Set the stroke color of SVG icons to light gray */
+}
+
+.ql-toolbar svg .ql-fill {
+  fill: #b6b6b6 !important; /* Ensure the fill is light gray for all icons */
+}
+
+/* Change the color of the toolbar text buttons to light gray */
+.ql-toolbar button,
+.ql-toolbar .ql-picker-label {
+  color: #b6b6b6 !important; /* Set the color to light gray */
+  background-color: transparent; /* Remove any background color */
+}
+
+/* Ensure the underline in the 'U' icon is visible and gray */
+.ql-toolbar button.ql-underline svg .ql-stroke,
+.ql-toolbar button.ql-underline svg .ql-fill {
+  stroke: #b6b6b6 !important; /* Make the underline stroke gray */
+}
+
+/* Fix the dash under the 'T' icon (clean button) */
+.ql-toolbar button.ql-clean svg .ql-stroke {
+  stroke: #b6b6b6; /* Ensure the dash stroke is light gray */
+}
+
+.ql-toolbar button.ql-clean svg .ql-fill {
+  fill: #b6b6b6; /* Ensure the dash fill is light gray */
+}
+
+.messages-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #b9b8b8 #262626;
+}
+
+/* Active state for Quill toolbar buttons */
+.ql-toolbar.ql-snow .ql-formats button.ql-active {
+  color: #8b5cf6 !important;
+}
+
+.ql-toolbar.ql-snow .ql-formats button.ql-active .ql-stroke {
+  stroke: #8b5cf6 !important;
+}
+
+.ql-toolbar.ql-snow .ql-formats button.ql-active .ql-fill {
+  fill: #8b5cf6 !important;
+}
+
+/* Hover state for Quill toolbar buttons */
+.ql-toolbar.ql-snow .ql-formats button:hover {
+  color: #8b5cf6 !important;
+}
+
+.ql-toolbar.ql-snow .ql-formats button:hover .ql-stroke {
+  stroke: #8b5cf6 !important;
+}
+
+.ql-toolbar.ql-snow .ql-formats button:hover .ql-fill {
+  fill: #8b5cf6 !important;
+}
+
+/* For link button when active or hovered */
+.ql-toolbar.ql-snow .ql-formats .ql-picker.ql-expanded .ql-picker-label,
+.ql-toolbar.ql-snow .ql-formats .ql-picker:hover .ql-picker-label {
+  color: #8b5cf6 !important;
+}
+
+.ql-toolbar.ql-snow
+  .ql-formats
+  .ql-picker.ql-expanded
+  .ql-picker-label
+  .ql-stroke,
+.ql-toolbar.ql-snow .ql-formats .ql-picker:hover .ql-picker-label .ql-stroke {
+  stroke: #8b5cf6 !important;
+}
+
+/* For list buttons when active or hovered */
+.ql-toolbar.ql-snow .ql-formats button.ql-active[value="ordered"],
+.ql-toolbar.ql-snow .ql-formats button.ql-active[value="bullet"],
+.ql-toolbar.ql-snow .ql-formats button:hover[value="ordered"],
+.ql-toolbar.ql-snow .ql-formats button:hover[value="bullet"] {
+  color: #8b5cf6 !important;
 }
