@@ -222,6 +222,7 @@ export const Thread = ({ messageId, onClose }: ThreadProps) => {
                   hideThreadButton
                   threadCount={msg.threadCount}
                   threadImage={msg.threadImage}
+                  threadName={msg.threadName}
                   threadTimestamp={msg.threadTimeStamp}
                 />
               );

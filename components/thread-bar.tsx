@@ -25,7 +25,7 @@ export const ThreadBar = ({
   return (
     <button
       onClick={onClick}
-      className="p-1 rounded-md hover:bg-neutral-600/40 border border-transparent flex items-center justify-start group/thread-bar transition max-w-[600px]"
+      className="p-1 rounded-md hover:bg-neutral-800/80 border border-transparent flex items-center justify-start group/thread-bar transition max-w-[600px]"
     >
       <div className="flex items-center gap-2 overflow-hidden">
         <Avatar className="size-6 shrink-0">
