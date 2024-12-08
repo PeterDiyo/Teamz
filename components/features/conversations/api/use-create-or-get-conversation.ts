@@ -1,5 +1,5 @@
 import { api } from "@/convex/_generated/api";
-import { Doc, Id } from "@/convex/_generated/dataModel";
+import { Id } from "@/convex/_generated/dataModel";
 import { useMutation } from "convex/react";
 import { useCallback, useMemo, useState } from "react";
 
