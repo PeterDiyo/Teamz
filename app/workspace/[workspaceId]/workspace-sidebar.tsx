@@ -23,7 +23,7 @@ const WorkspaceSidebar = () => {
   const channelId = useChannelId();
   const memberId = useMemberId();
 
-  const [_open, setOpen] = useCreateChannelModal();
+  const [, setOpen] = useCreateChannelModal();
 
   const { data: member, isLoading: memberLoading } = useCurrentMember({
     workspaceId,
@@ -31,12 +31,8 @@ const WorkspaceSidebar = () => {
   const { data: workspace, isLoading: workspaceLoading } = useGetWorkSpace({
     id: workspaceId,
   });
-  const { data: channels, isLoading: channelsLoading } = useGetChannels({
-    workspaceId,
-  });
-  const { data: members, isLoading: membersLoading } = UseGetMembers({
-    workspaceId,
-  });
+  const { data: channels } = useGetChannels({ workspaceId });
+  const { data: members } = UseGetMembers({ workspaceId });
 
   if (workspaceLoading || memberLoading) {
     return (
@@ -70,36 +66,31 @@ const WorkspaceSidebar = () => {
         hint="New channel"
         onNew={member.role === "admin" ? () => setOpen(true) : undefined}
       >
-        {channels?.map((item) => {
-          return (
-            <SidebarItem
-              key={item._id}
-              icon={HashIcon}
-              label={item.name}
-              id={item._id}
-              variant={channelId === item._id ? "active" : "default"}
-            />
-          );
-        })}
+        {channels?.map((item) => (
+          <SidebarItem
+            key={item._id}
+            icon={HashIcon}
+            label={item.name}
+            id={item._id}
+            variant={channelId === item._id ? "active" : "default"}
+          />
+        ))}
       </WorkspaceSection>
       <WorkspaceSection
         label="Direct Messages"
         hint="New direct message"
         onNew={() => {}}
       >
-        {members?.map((item) => {
-          return (
-            <div className="my-0.5">
-              <UserItem
-                key={item._id}
-                id={item._id}
-                label={item.user.name}
-                image={item.user.image}
-                variant={item._id === memberId ? "active" : "default"}
-              />
-            </div>
-          );
-        })}
+        {members?.map((item) => (
+          <div key={item._id} className="my-0.5">
+            <UserItem
+              id={item._id}
+              label={item.user.name}
+              image={item.user.image}
+              variant={item._id === memberId ? "active" : "default"}
+            />
+          </div>
+        ))}
       </WorkspaceSection>
     </div>
   );

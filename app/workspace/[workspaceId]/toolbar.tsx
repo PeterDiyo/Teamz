@@ -3,7 +3,6 @@ import { useWorkspaceId } from "@/components/hooks/use-workspace-id";
 import { Button } from "@/components/ui/button";
 import { Info, Search } from "lucide-react";
 import {
-  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
@@ -11,7 +10,6 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
