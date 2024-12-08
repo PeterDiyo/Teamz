@@ -17,7 +17,7 @@ const JoinPage = () => {
   const router = useRouter();
   const workspaceId = useWorkspaceId();
 
-  const { mutate, isPending } = useJoin();
+  const { mutate } = useJoin();
   const { data, isLoading } = useGetWorkSpaceInfo({ id: workspaceId });
 
   const isMember = useMemo(() => data?.isMember, [data?.isMember]);

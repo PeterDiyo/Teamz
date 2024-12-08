@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { FaChevronDown } from "react-icons/fa";
 import { TrashIcon } from "lucide-react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { useUpdateChannel } from "@/components/features/channels/api/use-update-channel";
 import { useChannelId } from "@/components/hooks/use-channel-id";
