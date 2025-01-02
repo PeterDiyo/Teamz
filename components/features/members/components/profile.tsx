@@ -172,6 +172,8 @@ export const Profile = ({ memberId, onClose }: ProfileProps) => {
       <RemoveDialog />
       <LeaveDialog />
       <UpdateDialog />
+      {isUpdatingMember && <Loader />}
+      {isRemovingMember && <Loader />}
       <div className="h-full flex flex-col text-neutral-200">
         <div className="flex h-[49px] justify-between items-center px-4 border-b border-neutral-700">
           <p className="text-lg font-bold">Profile</p>
