@@ -145,10 +145,10 @@ const Editor = ({
     }
   };
 
-  const onEmojiSelect = (emoji: any) => {
+  const onEmojiSelect = (emojivalue: string) => {
     const quill = quillRef.current;
 
-    quill?.insertText(quill?.getSelection()?.index || 0, emoji.native);
+    quill?.insertText(quill?.getSelection()?.index || 0, emojivalue);
   };
 
   const isEmpty = !image && text.replace(/<(.|\n)*?>/g, "").trim().length === 0;
